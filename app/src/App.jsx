@@ -35,6 +35,7 @@ export default function App() {
     const [countValue, setCountValue] = useState("-");
     const [status, setStatus] = useState("idle");
     const [activeTab, setActiveTab] = useState("create");
+    const [showLanding, setShowLanding] = useState(true);
     const [confirmAction, setConfirmAction] = useState(null);
     const confirmTimer = useRef(null);
 
@@ -99,6 +100,8 @@ export default function App() {
         }
     }, [confirmAction, form.id, form.customer, form.provider]);
 
+    const startApp = () => setShowLanding(false);
+
     const onCompleteBooking = () => runAction(async () => completeBooking({
         id: form.id.trim(),
         provider: form.provider.trim(),
@@ -135,7 +138,67 @@ export default function App() {
 
     return (
         <main className="app">
-            {/* Calendar Hero */}
+            {showLanding ? (
+                <>
+                    <section className="landing-hero">
+                        <div className="landing-copy">
+                            <span className="eyebrow">Stellar Soroban Project 4</span>
+                            <h1>Decentralized booking built for modern service providers.</h1>
+                            <p>Launch appointments and time-slot reservations on Stellar with secure wallet sign-in, instant slot creation, and transparent blockchain booking.</p>
+                            <div className="landing-actions">
+                                <button className="primary-btn" type="button" onClick={startApp}>Launch Dashboard</button>
+                                <a className="secondary-link" href="#features">View features</a>
+                            </div>
+                        </div>
+                        <div className="landing-preview">
+                            <div className="preview-card">
+                                <div className="preview-header">Live Booking Console</div>
+                                <div className="preview-grid">
+                                    <div className="preview-stat">
+                                        <span>Total Slots</span>
+                                        <strong>-</strong>
+                                    </div>
+                                    <div className="preview-stat">
+                                        <span>Status</span>
+                                        <strong>Idle</strong>
+                                    </div>
+                                    <div className="preview-stat">
+                                        <span>Network</span>
+                                        <strong>Stellar</strong>
+                                    </div>
+                                </div>
+                                <div className="preview-actions">
+                                    <button type="button" className="preview-btn">Connect Wallet</button>
+                                    <button type="button" className="preview-btn preview-btn-secondary">Create Slot</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="landing-overview" id="features">
+                        <div className="overview-intro">
+                            <p className="eyebrow">Why choose Stellar Booking?</p>
+                            <h2>Fast, secure and on-chain reservation workflows.</h2>
+                        </div>
+                        <div className="feature-grid">
+                            <article className="feature-card">
+                                <h3>Secure wallet access</h3>
+                                <p>Connect with Freighter and authenticate transactions directly from your Stellar wallet.</p>
+                            </article>
+                            <article className="feature-card">
+                                <h3>Instant slot management</h3>
+                                <p>Create, book, cancel, and complete appointment slots using Soroban smart contract flows.</p>
+                            </article>
+                            <article className="feature-card">
+                                <h3>Transparent results</h3>
+                                <p>See live logs and results from every action so your booking state stays clear and auditable.</p>
+                            </article>
+                        </div>
+                    </section>
+                </>
+            ) : (
+                <> 
+                    {/* Calendar Hero */}
             <div className="calendar-hero">
                 <div className="hero-top">
                     <div className="hero-content">
@@ -312,6 +375,8 @@ export default function App() {
                     </div>
                 </div>
             </div>
+                </>
+            )}
         </main>
     );
 }
