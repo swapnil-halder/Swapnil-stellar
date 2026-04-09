@@ -4,7 +4,19 @@ A decentralized booking and reservation system built using the **Soroban SDK** o
 
 ---
 
-## 🚀 Features
+## �️ Screenshots
+
+### Landing Page
+
+![Landing page](app/public/landing-page.jpeg)
+
+### Booking Dashboard
+
+![Booking dashboard](app/public/app-page.jpeg)
+
+---
+
+## �🚀 Features
 
 - 🗓️ Create service slots
 - 📌 Book available slots
