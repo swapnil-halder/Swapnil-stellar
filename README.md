@@ -16,7 +16,7 @@ A decentralized booking and reservation system built using the **Soroban SDK** o
 
 ### Contract Explorer
 
-![Contract explorer](app/public/contract-page.svg)
+![Contract explorer](app/public/contract-page.png)
 
 [View deployed contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CD6X4WLOSADDVVFDANFBQW3Y4YNGCLISKASB5H5SL4HXACJMKZGGCC3E)
 
